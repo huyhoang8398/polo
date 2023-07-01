@@ -31,9 +31,9 @@ Below the crontab settings to create some ssh tunnels. If any tunnel is broken d
 ```bash
 $ crontab -l
 
-*/1 * * * * python solo.py -port 6432 --address 127.0.0.1 --no-bind /usr/bin/ssh zproxydev -fN
-*/1 * * * * python solo.py -port 6442 --address 127.0.0.1 --no-bind /usr/bin/ssh zproxystaging -fN
-*/1 * * * * python solo.py -port 6452 --address 127.0.0.1 --no-bind /usr/bin/ssh zproxyproduction -fN
+*/1 * * * * python solo.py --port 6432 --address 127.0.0.1 --no-bind /usr/bin/ssh zproxydev -fN
+*/1 * * * * python solo.py --port 6442 --address 127.0.0.1 --no-bind /usr/bin/ssh zproxystaging -fN
+*/1 * * * * python solo.py --port 6452 --address 127.0.0.1 --no-bind /usr/bin/ssh zproxyproduction -fN
 ```
 
 
