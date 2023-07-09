@@ -6,6 +6,7 @@ import re
 import sys
 import fcntl
 
+
 def is_port_available(ip, port, timeout):
     try:
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
@@ -15,8 +16,10 @@ def is_port_available(ip, port, timeout):
     except OSError:
         return False
 
+
 def warnf(format, *args):
     print("::", format % args, file=sys.stderr)
+
 
 def close_on_exec(state):
     pid = os.getpid()
@@ -34,14 +37,26 @@ def close_on_exec(state):
                 flags &= ~fcntl.FD_CLOEXEC
             fcntl.fcntl(fd, fcntl.F_SETFD, flags)
 
+
 def main():
     parser = argparse.ArgumentParser(description="A Python version of solo")
-    parser.add_argument("--address", default="127.0.0.1", help="Address to listen on or to check")
-    parser.add_argument("--dir", default=".", help="Working directory")
-    parser.add_argument("--port", type=int, default=0, help="Port to listen on or to check")
-    parser.add_argument("--timeout", type=int, default=1, help="Timeout when checking. Default: 1 second.")
-    parser.add_argument("--no-bind", action="store_true", help="Do not bind on address:port specified")
+    parser.add_argument(
+        "--address", default="127.0.0.1", help="Address to listen on or to check"
+    ) parser.add_argument("--dir", default=".", help="Working directory")
+    parser.add_argument(
+        "--port", type=int, default=0, help="Port to listen on or to check"
+    )
+    parser.add_argument(
+        "--timeout",
+        type=int,
+        default=1,
+        help="Timeout when checking. Default: 1 second.",
+    )
+    parser.add_argument(
+        "--no-bind", action="store_true", help="Do not bind on address:port specified"
+    )
     parser.add_argument("command", nargs="+", help="The command to execute")
+    # parser.add_argument("--command", help="The command to execute")
 
     args = parser.parse_args()
 
@@ -75,6 +90,7 @@ def main():
     except Exception as e:
         warnf("Executing got error '%s'", e)
         sys.exit(1)
+
 
 if __name__ == "__main__":
     main()
