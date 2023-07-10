@@ -9,7 +9,7 @@ The basic ideas come from the original `Perl` application [solo](https://github.
 # Example usage
 
 ```
-usage: polo.py [-h] [--address ADDRESS] [--dir DIR] [--port PORT] [--timeout TIMEOUT] [--no-bind]
+usage: polo.py [-h] [--address ADDRESS] [--dir DIR] [--port PORT] [--timeout TIMEOUT] [--no-bind] --
                command [command ...]
 
 A Python version of solo

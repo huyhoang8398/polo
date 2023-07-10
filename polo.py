@@ -42,7 +42,8 @@ def main():
     parser = argparse.ArgumentParser(description="A Python version of solo")
     parser.add_argument(
         "--address", default="127.0.0.1", help="Address to listen on or to check"
-    ) parser.add_argument("--dir", default=".", help="Working directory")
+    )
+    parser.add_argument("--dir", default=".", help="Working directory")
     parser.add_argument(
         "--port", type=int, default=0, help="Port to listen on or to check"
     )
